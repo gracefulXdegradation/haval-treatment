@@ -1,9 +1,10 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { App } from './components/app'
+import { gsap, ScrollTrigger } from 'gsap/all'
 import './index.scss'
 
-window.gsap.registerPlugin(window.ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger)
 
 render(
   <App />,

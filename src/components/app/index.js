@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import cn from 'classnames'
+import { ScrollTrigger } from 'gsap/all'
 import slide2 from './img/slide2.png'
 import style from './style.module.scss'
 
@@ -11,9 +12,9 @@ export const App = () => {
   const refSlide5 = useRef(null)
 
   useEffect(() => {
-    let sections = [refSlide1, refSlide2, refSlide3, refSlide4, refSlide5].map(ref => ref.current);
+    const sections = [refSlide1, refSlide2, refSlide3, refSlide4, refSlide5].map(ref => ref.current);
     sections.forEach((panel, i) => {
-      window.ScrollTrigger.create({
+      ScrollTrigger.create({
         trigger: panel,
         start: "top top", 
         pin: true, 
@@ -21,7 +22,7 @@ export const App = () => {
       });
     });
 
-    window.ScrollTrigger.create({
+    ScrollTrigger.create({
       snap: 1 / (sections.length - 1)
     });
   }, [refSlide1, refSlide2, refSlide3, refSlide4, refSlide5])
