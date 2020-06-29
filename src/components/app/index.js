@@ -1,6 +1,9 @@
 import React, { useEffect, useRef } from 'react'
-import cn from 'classnames'
-import slide2 from './img/slide2.png'
+import { Slide1 } from '../slide-1'
+import { Slide2 } from '../slide-2'
+import { Slide3 } from '../slide-3'
+import { Slide4 } from '../slide-4'
+import { Slide5 } from '../slide-5'
 import style from './style.module.scss'
 
 export const App = () => {
@@ -24,57 +27,25 @@ export const App = () => {
     window.ScrollTrigger.create({
       snap: 1 / (sections.length - 1)
     });
-  
-  window.addEventListener('load', () => {
-    const h1 = refSlide1.current.querySelector('h1')
-    const h3 = refSlide1.current.querySelector('h3')
-    const h1rect = h1.getBoundingClientRect()
-    const h3rect = h3.getBoundingClientRect()
-    const bodyRect = document.body.getBoundingClientRect()
-
-    const tl = window.gsap.timeline()
-    window.gsap.set(h3, { y: bodyRect.height / 2 + h1rect.height / 2 - h3rect.height * 0.7 })
-    tl
-    .fromTo(h1, {
-      x: -h1rect.width,
-      y: bodyRect.height / 2 - h1rect.height / 2,
-      skewX: 20,
-      visibility: 'visible'
-    }, {
-      x: bodyRect.width / 2 - h1rect.width / 2,
-      skewX: 0,
-      duration: 1,
-      delay: 1,
-      ease: 'back'
-    })
-    .fromTo(h3.querySelectorAll('span'), {
-      opacity: 0
-    }, {
-      opacity: 1,
-      duration: 1,
-      stagger: 0.02
-    })
-  }, false)
   }, [refSlide1, refSlide2, refSlide3, refSlide4, refSlide5])
 
   return (
     <div className={style.app}>
-      <section ref={refSlide1} className={cn(style.slide1, style.panel)}>
-        <h1>
-          <span className={style.haval}>HAVAL</span>
-          <span className={style.f7}>F7</span>
-        </h1>
-        <h3>
-          {'Director’s treatment by David Verges'.split('').map((l, i) => <span key={i+l}>{l}</span>)}
-        </h3>
+      <section ref={refSlide1}>
+        <Slide1 />
       </section>
-      <section ref={refSlide2} className={cn(style.slide2, style.panel)}>
-        <img src={slide2} />
+      <section ref={refSlide2}>
+        <Slide2 />
       </section>
-      <section ref={refSlide3} className={cn(style.slide3, style.panel)}>
+      <section ref={refSlide3}>
+        <Slide3 />
       </section>
-      <section ref={refSlide4} className={cn(style.slide4, style.panel)}>4</section>
-      <section ref={refSlide5} className={cn(style.slide5, style.panel)}>5</section>
+      <section ref={refSlide4}>
+        <Slide4 />
+      </section>
+      <section ref={refSlide5}>
+        <Slide5 />
+      </section>
     </div>
   )
 }
