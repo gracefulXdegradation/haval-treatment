@@ -7,6 +7,7 @@ import { Slide5 } from '../slide-5'
 import style from './style.module.scss'
 
 export const App = () => {
+  const refRoot = useRef(null)
   const refSlide1 = useRef(null)
   const refSlide2 = useRef(null)
   const refSlide3 = useRef(null)
@@ -15,22 +16,29 @@ export const App = () => {
 
   useEffect(() => {
     let sections = [refSlide1, refSlide2, refSlide3, refSlide4, refSlide5].map(ref => ref.current);
-    sections.forEach((panel, i) => {
-      window.ScrollTrigger.create({
-        trigger: panel,
-        start: "top top", 
-        pin: true, 
-        pinSpacing: false
-      });
+
+    window.gsap.set(sections, {zIndex: (i, target, targets) => targets.length - i});
+
+    window.gsap.to(sections.slice(0, sections.length - 1), {
+      yPercent: -100, 
+      ease: "none",
+      stagger: 0.5,
+      scrollTrigger: {
+        trigger: refRoot.current,
+        start: "top top",
+        end: `+=${(sections.length - 1) * 100}%`,
+        scrub: true,
+        pin: true
+      }
     });
 
     window.ScrollTrigger.create({
       snap: 1 / (sections.length - 1)
     });
-  }, [refSlide1, refSlide2, refSlide3, refSlide4, refSlide5])
+  }, [refSlide1, refSlide2, refSlide3, refSlide4, refSlide5, refRoot])
 
   return (
-    <div className={style.app}>
+    <div ref={refRoot} className={style.app}>
       <section ref={refSlide1}>
         <Slide1 />
       </section>
