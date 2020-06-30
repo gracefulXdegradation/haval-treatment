@@ -65,6 +65,18 @@ export const App = () => {
     //     // markers: true
     //   }
     // })
+
+
+    .from(refSlide2.current, {
+      yPercent: -100,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: refRoot.current,
+        start: 'top top',
+        end: '+=100%',
+        scrub: true
+      }
+    })
     .to(refHor.current, {
       xPercent: -100,
       x: window.innerWidth,

@@ -4,7 +4,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  // overflow-x: hidden;
 
   .slide1 {
     position: relative;
@@ -18,7 +17,6 @@
     position: relative;
     width: 100vw;
     height: 100vh;
-    // display: none;
   }
 
   .horizontal {
@@ -46,12 +44,4 @@
       left: 200vw;
     }
   }
-}
-
-.trigger {
-  position: relative;
-  z-index: -1;
-  width: 100vw;
-  height: calc(200vh + 300vw);
-  background: greenyellow;
 }
