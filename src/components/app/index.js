@@ -71,10 +71,12 @@ export const App = () => {
       yPercent: -100,
       ease: 'none',
       scrollTrigger: {
-        trigger: refRoot.current,
+        trigger: refSlide2.current,
         start: 'top top',
         end: '+=100%',
-        scrub: true
+        scrub: true,
+        // markers: true,
+        snap: 1
       }
     })
     .to(refHor.current, {
@@ -88,13 +90,20 @@ export const App = () => {
         scrub: true,
         pin: true,
         anticipatePin: 1,
-        markers: true
+        snap: 1 / 2
+        // markers: true
       }
     })
 
+    const { width: slideWidth, height: slideHeight } = refSlide1.current.getBoundingClientRect()
+    const docHeight = slideHeight * 2 + slideWidth * 3
+
     // window.ScrollTrigger.create({
-    //   snap: 1 / (sections.length - 1)
-    // });
+    //   snap: value => {
+    //     console.log(value, slideHeight / docHeight)
+    //     return 0.09367945998870186
+    //   }
+    // })
   }, [refSlide1, refSlide2, refSlide3, refSlide4, refSlide5, refRoot, refHor])
 
   return (
