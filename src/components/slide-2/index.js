@@ -35,6 +35,10 @@ export const Slide2 = () => {
         transform: `rotate3d(${tiltx}, ${tilty}, 0, ${degree}deg)`,
         ease: 'power2.out'
       });
+      window.gsap.to(rootEl, 1, {
+        backgroundPosition: `${50 + -tilty * 10}% ${50 + -tiltx * 10}%`,
+        ease: 'power2.out'
+      })
     }
     rootEl.addEventListener('mousemove', handleMouseMove, false)
     return () => rootEl.removeEventListener('mousemove', handleMouseMove)
