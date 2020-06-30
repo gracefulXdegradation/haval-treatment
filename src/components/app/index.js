@@ -94,6 +94,16 @@ export const App = () => {
         // markers: true
       }
     })
+    // .to(refSlide5.current, {
+    //   ease: 'none',
+    //   scrollTrigger: {
+    //     trigger: refSlide5.current,
+    //     start: 'top bottom',
+    //     end: '+=100%',
+    //     scrub: true,
+    //     markers: true
+    //   }
+    // })
 
     const { width: slideWidth, height: slideHeight } = refSlide1.current.getBoundingClientRect()
     const docHeight = slideHeight * 2 + slideWidth * 3

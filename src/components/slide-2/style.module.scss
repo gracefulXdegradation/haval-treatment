@@ -5,4 +5,33 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  position: relative;
+  
+  .textWrap {
+    position: absolute;
+    left: 5vw;
+    bottom: 5vw;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+
+  .text {
+    text-transform: uppercase;
+    font-size: 7vw;
+    font-family: 'Inter UI';
+    font-style: italic;
+    font-weight: bold;
+    -webkit-text-stroke: .8px #ffffff;
+    -webkit-text-fill-color: transparent;
+    transform: scaleX(1.5);
+    transform-origin: top left;
+    &:last-child {
+      -webkit-text-stroke: .8px #ffffff;
+      -webkit-text-fill-color: transparent;
+      transform: scaleX(1.5) translateZ(-30px);
+      position: absolute;
+      top: 0;
+      opacity: .2;
+    }
+  }
 }
