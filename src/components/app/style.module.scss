@@ -4,13 +4,54 @@
   position: absolute;
   top: 0;
   left: 0;
-  overflow: hidden;
-  
-  & > section {
-    position: absolute;
+  // overflow-x: hidden;
+
+  .slide1 {
+    position: relative;
     will-change: transform;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
   }
+
+  .slide5 {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    // display: none;
+  }
+
+  .horizontal {
+    position: relative;
+    height: 100vh;
+    width: 300vw;
+    top: 0;
+
+    & > section {
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      position: absolute;
+    }
+
+    .slide2 {
+      left: 0;
+    }
+
+    .slide3 {
+      left: 100vw;
+    }
+
+    .slide4 {
+      left: 200vw;
+    }
+  }
+}
+
+.trigger {
+  position: relative;
+  z-index: -1;
+  width: 100vw;
+  height: calc(200vh + 300vw);
+  background: greenyellow;
 }
