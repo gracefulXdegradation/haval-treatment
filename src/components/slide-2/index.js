@@ -4,12 +4,11 @@ import style from './style.module.scss'
 export const Slide2 = () => {
   const refRoot = useRef(null)
   const refText = useRef(null)
-  const refTextWrap = useRef(null)
   const refBg = useRef(null)
 
   useEffect(() => {
     const rootEl = refRoot.current
-    const textEl = refTextWrap.current
+    const textEl = refText.current
     const bgEl = refBg.current
     let request;
     let mouse = { x: 0, y: 0 };
@@ -44,18 +43,20 @@ export const Slide2 = () => {
     }
     rootEl.addEventListener('mousemove', handleMouseMove, false)
     return () => rootEl.removeEventListener('mousemove', handleMouseMove)
-  }, [refRoot, refText, refTextWrap, refBg])
+  }, [refRoot, refText, refBg])
 
   return (
     <div ref={refRoot} className={style.slideRoot}>
       <div ref={refBg} className={style.background} />
-      <div ref={refTextWrap} className={style.textWrap}>
-        <h2 ref={refText} className={style.text}>
-          <i>
-            <span data-hover="Your">Your</span><br />
-            <span data-hover="intellectual">intellectual</span><br />
-            <span data-hover="freedom">freedom</span>
-          </i>
+      <div className={style.textWrap}>
+        <h2 className={style.text}>
+          <div ref={refText} className={style.rotation}>
+            <i className={style.hoverTrigger}>
+              <span data-hover="Your">Your</span><br />
+              <span data-hover="intellectual">intellectual</span><br />
+              <span data-hover="freedom">freedom</span>
+            </i>
+          </div>
         </h2>
       </div>
     </div>

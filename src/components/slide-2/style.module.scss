@@ -18,8 +18,6 @@
     position: absolute;
     left: 5vw;
     bottom: 5vw;
-    // perspective: 1000px;
-    // transform-style: preserve-3d;
   }
 
   .text {
@@ -33,10 +31,15 @@
     transform: scaleX(1.5);
     transform-origin: top left;
 
-    i {
+    .rotation {
+      perspective: 1000px;
+      transform-style: preserve-3d;
+      transform: rotate3d(1, 1, 0, 10deg);
+    }
+
+    .hoverTrigger {
       &:hover span:after {
         max-width: 100%;
-        transition-delay: 0s;
       }
     }
 
@@ -52,10 +55,17 @@
         max-width: 0;
         overflow: hidden;
         transition: max-width .2s linear;
-        -webkit-text-stroke: none;
+        -webkit-text-stroke: transparent;
         -webkit-text-fill-color: #fff;
         display: block;
         width: 100%;
+        transform: translateZ(5px);
+      }
+      &:first-child:after {
+        transition-delay: .1s;
+      }
+      &:last-child:after {
+        transition-delay: .15s;
       }
     }
   }
