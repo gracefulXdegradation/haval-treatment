@@ -5,10 +5,12 @@ export const Slide2 = () => {
   const refRoot = useRef(null)
   const refText = useRef(null)
   const refTextWrap = useRef(null)
+  const refBg = useRef(null)
 
   useEffect(() => {
     const rootEl = refRoot.current
     const textEl = refTextWrap.current
+    const bgEl = refBg.current
     let request;
     let mouse = { x: 0, y: 0 };
     const slideRect = rootEl.getBoundingClientRect()
@@ -35,28 +37,29 @@ export const Slide2 = () => {
         transform: `rotate3d(${tiltx}, ${tilty}, 0, ${degree}deg)`,
         ease: 'power2.out'
       });
-      window.gsap.to(rootEl, 1, {
-        backgroundPosition: `${50 + -tilty * 10}% ${50 + -tiltx * 10}%`,
+      window.gsap.to(bgEl, 1, {
+        transform: `translate(${tilty * 3}%, ${-tiltx * 3}%) scale(1.06)`,
         ease: 'power2.out'
       })
     }
     rootEl.addEventListener('mousemove', handleMouseMove, false)
     return () => rootEl.removeEventListener('mousemove', handleMouseMove)
-  }, [refRoot, refText, refTextWrap])
+  }, [refRoot, refText, refTextWrap, refBg])
 
   return (
     <div ref={refRoot} className={style.slideRoot}>
+      <div ref={refBg} className={style.background} />
       <div ref={refTextWrap} className={style.textWrap}>
         <h2 ref={refText} className={style.text}>
+          <span data-hover="Your">Your</span><br />
+          <span data-hover="intellectual">intellectual</span><br />
+          <span data-hover="freedom">freedom</span>
+        </h2>
+        {/* <h2 ref={refText} className={style.text}>
           Your<br />
           intellectual<br />
           freedom
-        </h2>
-        <h2 ref={refText} className={style.text}>
-          Your<br />
-          intellectual<br />
-          freedom
-        </h2>
+        </h2> */}
       </div>
     </div>
   )
