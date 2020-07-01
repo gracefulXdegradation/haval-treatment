@@ -51,15 +51,12 @@ export const Slide2 = () => {
       <div ref={refBg} className={style.background} />
       <div ref={refTextWrap} className={style.textWrap}>
         <h2 ref={refText} className={style.text}>
-          <span data-hover="Your">Your</span><br />
-          <span data-hover="intellectual">intellectual</span><br />
-          <span data-hover="freedom">freedom</span>
+          <i>
+            <span data-hover="Your">Your</span><br />
+            <span data-hover="intellectual">intellectual</span><br />
+            <span data-hover="freedom">freedom</span>
+          </i>
         </h2>
-        {/* <h2 ref={refText} className={style.text}>
-          Your<br />
-          intellectual<br />
-          freedom
-        </h2> */}
       </div>
     </div>
   )
