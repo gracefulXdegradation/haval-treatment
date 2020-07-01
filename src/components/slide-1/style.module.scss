@@ -15,14 +15,14 @@
     visibility: hidden;
     position: absolute;
 
-    .haval {
-      color: #ffe700;
-    }
-    .f7 {
-      -webkit-text-stroke: .8px #ffe700;
-      -webkit-text-fill-color: transparent;
-      &.hover {
-        -webkit-text-fill-color: #ffe700;
+    .heading {
+      display: block;
+      .haval {
+        color: #ffe700;
+      }
+      .f7 {
+        -webkit-text-stroke: .8px #ffe700;
+        -webkit-text-fill-color: transparent;
       }
     }
   }
