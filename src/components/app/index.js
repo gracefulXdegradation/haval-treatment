@@ -104,16 +104,6 @@ export const App = () => {
     //     markers: true
     //   }
     // })
-
-    const { width: slideWidth, height: slideHeight } = refSlide1.current.getBoundingClientRect()
-    const docHeight = slideHeight * 2 + slideWidth * 3
-
-    // window.ScrollTrigger.create({
-    //   snap: value => {
-    //     console.log(value, slideHeight / docHeight)
-    //     return 0.09367945998870186
-    //   }
-    // })
   }, [refSlide1, refSlide2, refSlide3, refSlide4, refSlide5, refRoot, refHor])
 
   return (
