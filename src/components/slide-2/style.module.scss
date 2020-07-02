@@ -27,8 +27,6 @@
     font-family: 'Inter UI';
     font-style: italic;
     font-weight: bold;
-    -webkit-text-stroke: .8px #ffffff;
-    -webkit-text-fill-color: transparent;
     transform: scaleX(1.5);
     transform-origin: top left;
 
@@ -56,12 +54,11 @@
         max-width: 0;
         overflow: hidden;
         transition: max-width .25s linear;
-        -webkit-text-stroke: transparent;
-        -webkit-text-fill-color: #fff;
         display: block;
         width: 100%;
         transform: translateZ(5px);
-        opacity: .5;
+        opacity: .6;
+        mix-blend-mode: screen;
       }
       &:first-child:after {
         transition-delay: .1s;
@@ -70,6 +67,11 @@
       &:last-child:after {
         transition-delay: .05s;
         transition-duration: .2s;
+      }
+
+      i {
+        -webkit-text-stroke: .8px #ffffff;
+        -webkit-text-fill-color: transparent;
       }
     }
   }

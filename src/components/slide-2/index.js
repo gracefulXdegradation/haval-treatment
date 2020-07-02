@@ -10,11 +10,11 @@ export const Slide2 = () => {
     const rootEl = refRoot.current
     const textEl = refText.current
     const bgEl = refBg.current
-    let request;
-    let mouse = { x: 0, y: 0 };
+    let request
+    let mouse = { x: 0, y: 0 }
     const slideRect = rootEl.getBoundingClientRect()
-    let cx = slideRect.width / 2;
-    let cy = slideRect.height / 2;
+    let cx = slideRect.width / 2
+    let cy = slideRect.height / 2
     const handleMouseMove = (event) => {
       mouse = {
         x: event.x,
@@ -52,9 +52,15 @@ export const Slide2 = () => {
         <h2 className={style.text}>
           <div ref={refText} className={style.rotation}>
             <i className={style.hoverTrigger}>
-              <span data-hover="Your">Your</span><br />
-              <span data-hover="intellectual">intellectual</span><br />
-              <span data-hover="freedom">freedom</span>
+              <span data-hover="Your">
+                <i>Your</i>
+              </span><br />
+              <span data-hover="intellectual">
+                <i>intellectual</i>
+              </span><br />
+              <span data-hover="freedom">
+                <i>freedom</i>
+              </span>
             </i>
           </div>
         </h2>
