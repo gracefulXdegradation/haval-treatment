@@ -39,19 +39,29 @@ export const Slide3 = () => {
       // const radius = Math.sqrt(Math.pow(tiltx, 2) + Math.pow(tilty, 2));
       // const degree = (radius * 20);
       window.gsap.to(bgEl, 1, {
-        transform: `translate(${tilty * 4}%, ${-tiltx * 4}%) scale(1.08)`,
+        transform: `translate(${tilty * 3}%, ${-tiltx * 3}%) scale(1.06)`,
         ease: 'power2.out'
       })
       window.gsap.to(cell1El.querySelector(`.${style.frame}`), 1, {
-        transform: `translate(${tilty * 3}%, ${-tiltx * 3}%)`,
+        transform: `translate(${tilty * 2}%, ${-tiltx * 2}%)`,
         ease: 'power2.out'
       })
+      window.gsap.to(cell1El.querySelector(`.${style.inner}`), 1, {
+        transform: `translate(${tilty * 1.2}%, ${-tiltx * 1.2}%) scale(1.2)`,
+        ease: 'power2.out'
+      })
+
       window.gsap.to([cell2El, cell3El].map(el => el.querySelector(`.${style.frame}`)), 1, {
-        transform: `translate(${-tilty * 3}%, ${tiltx * 3}%)`,
+        transform: `translate(${-tilty * 2}%, ${tiltx * 2}%)`,
         ease: 'power2.out'
       })
+      window.gsap.to([cell2El, cell3El].map(el => el.querySelector(`.${style.inner}`)), 1, {
+        transform: `translate(${-tilty * 1.2}%, ${tiltx * 1.2}%) scale(1.2)`,
+        ease: 'power2.out'
+      })
+
       window.gsap.to(textEl.querySelector('i'), 1, {
-        transform: `translate(${-tilty}vw, ${tiltx}vw)`,
+        transform: `translate(${-tilty * 1.2}vw, ${tiltx * 1.2}vw)`,
         ease: 'power2.out'
       })
     }
