@@ -1,7 +1,7 @@
 @font-face {
-  font-family: 'Inter UI Bold Italic';
-  font-style: normal;
-  font-weight: normal;
+  font-family: 'Inter UI';
+  font-style: italic;
+  font-weight: bold;
   src: url("./fonts/Inter-UI-BlackItalic.ttf") format("truetype");
 }
 
@@ -24,6 +24,7 @@ body {
   margin: 0;
   padding: 0;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5 {

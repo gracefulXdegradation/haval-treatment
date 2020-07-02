@@ -7,6 +7,9 @@ import { Slide5 } from '../slide-5'
 import style from './style.module.scss'
 
 export const App = () => {
+  const refRoot = useRef(null)
+  const refHor = useRef(null)
+  const refTrigger = useRef(null)
   const refSlide1 = useRef(null)
   const refSlide2 = useRef(null)
   const refSlide3 = useRef(null)
@@ -15,35 +18,111 @@ export const App = () => {
 
   useEffect(() => {
     let sections = [refSlide1, refSlide2, refSlide3, refSlide4, refSlide5].map(ref => ref.current);
-    sections.forEach((panel, i) => {
-      window.ScrollTrigger.create({
-        trigger: panel,
-        start: "top top", 
-        pin: true, 
-        pinSpacing: false
-      });
-    });
 
-    window.ScrollTrigger.create({
-      snap: 1 / (sections.length - 1)
-    });
-  }, [refSlide1, refSlide2, refSlide3, refSlide4, refSlide5])
+    window.gsap.set(sections, {zIndex: (i, target, targets) => targets.length - i});
+
+    const tl = window.gsap.timeline()
+
+    tl
+    // .to(refSlide1.current, {
+    //   yPercent: -100, 
+    //   ease: "none",
+    //   // stagger: 0.5,
+    //   scrollTrigger: {
+    //     trigger: refRoot.current,
+    //     start: "top top",
+    //     end: `+=100%`,
+    //     scrub: true,
+    //     pin: true
+    //   }
+    // })
+    // .to(refHor.current, {
+    //   xPercent: -100,
+    //   x: window.innerWidth,
+    //   ease: "none",
+    //   scrollTrigger: {
+    //     trigger: refSlide1.current,
+    //     start: "bottom top",
+    //     endTrigger: refHor.current,
+    //     end: () => window.innerWidth * 2,
+    //     scrub: true,
+    //     pin: true,
+    //     anticipatePin: 1,
+    //     markers: true
+    //   }
+    // })
+
+
+    // .to(refHor.current, {
+    //   // yPercent: 100,
+    //   ease: 'none',
+    //   scrollTrigger: {
+    //     trigger: refHor.current,
+    //     start: 'top top',
+    //     end: '+=100%',
+    //     scrub: true,
+    //     pin: true,
+    //     // markers: true
+    //   }
+    // })
+
+
+    .from(refSlide2.current, {
+      yPercent: -100,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: refSlide2.current,
+        start: 'top top',
+        end: '+=100%',
+        scrub: true,
+        // markers: true,
+        snap: 1
+      }
+    })
+    .to(refHor.current, {
+      xPercent: -100,
+      x: window.innerWidth,
+      ease: "none",
+      scrollTrigger: {
+        trigger: refHor.current,
+        start: "top top",
+        end: () => window.innerWidth * 3,
+        scrub: true,
+        pin: true,
+        anticipatePin: 1,
+        snap: 1 / 2
+        // markers: true
+      }
+    })
+    // .to(refSlide5.current, {
+    //   ease: 'none',
+    //   scrollTrigger: {
+    //     trigger: refSlide5.current,
+    //     start: 'top bottom',
+    //     end: '+=100%',
+    //     scrub: true,
+    //     markers: true
+    //   }
+    // })
+  }, [refSlide1, refSlide2, refSlide3, refSlide4, refSlide5, refRoot, refHor])
 
   return (
-    <div className={style.app}>
-      <section ref={refSlide1}>
+    <div ref={refRoot} className={style.app}>
+      <section ref={refSlide1} className={style.slide1}>
         <Slide1 />
       </section>
-      <section ref={refSlide2}>
-        <Slide2 />
-      </section>
-      <section ref={refSlide3}>
-        <Slide3 />
-      </section>
-      <section ref={refSlide4}>
-        <Slide4 />
-      </section>
-      <section ref={refSlide5}>
+      <div className={style.horizontal} ref={refHor}>
+        <section ref={refSlide2} className={style.slide2}>
+          <Slide2 />
+        </section>
+        <section ref={refSlide3} className={style.slide3}>
+          <Slide3 />
+        </section>
+        <section ref={refSlide4} className={style.slide4}>
+          <Slide4 />
+        </section>
+      </div>
+      <section ref={refSlide5} className={style.slide5}>
         <Slide5 />
       </section>
     </div>

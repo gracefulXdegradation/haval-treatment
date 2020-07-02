@@ -1,7 +1,7 @@
 .slideRoot {
   width: 100%;
   height: 100%;
-  background-image: url(./img/slide1.png);
+  background-image: url(./img/slide1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -15,14 +15,14 @@
     visibility: hidden;
     position: absolute;
 
-    .haval {
-      color: #ffe700;
-    }
-    .f7 {
-      -webkit-text-stroke: .8px #ffe700;
-      -webkit-text-fill-color: transparent;
-      &.hover {
-        -webkit-text-fill-color: #ffe700;
+    .heading {
+      display: block;
+      .haval {
+        color: #ffe700;
+      }
+      .f7 {
+        -webkit-text-stroke: .8px #ffe700;
+        -webkit-text-fill-color: transparent;
       }
     }
   }
