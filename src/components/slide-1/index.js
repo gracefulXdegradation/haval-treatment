@@ -28,7 +28,19 @@ export const Slide1 = () => {
           duration: 1,
           delay: 1,
           stagger: -.1,
-          ease: 'back'
+          ease: 'back',
+          onComplete: () => {
+            _tl.to(h1.querySelectorAll('i'), {
+              y: '-=20vh',
+              ease: 'none',
+              scrollTrigger: {
+                trigger: refRoot.current,
+                start: 'top top',
+                end: '+=100%',
+                scrub: true
+              }
+            })
+          }
         })
       }
 
@@ -42,7 +54,19 @@ export const Slide1 = () => {
         }, {
           opacity: 1,
           duration: 1,
-          stagger: 0.02
+          stagger: 0.02,
+          onComplete: () => {
+            _tl.to(h3, {
+              y: '-=10vh',
+              ease: 'none',
+              scrollTrigger: {
+                trigger: refRoot.current,
+                start: 'top top',
+                end: '+=100%',
+                scrub: true
+              }
+            })
+          }
         })
       }
 
