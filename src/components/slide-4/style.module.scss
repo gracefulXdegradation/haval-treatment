@@ -5,4 +5,88 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  overflow: hidden;
 }
+
+.rollingText {
+  display: flex;
+  transform: rotateZ(15deg) translate(0px, 20vh);
+
+  .stripe {
+    display: block;
+  }
+
+  .text {
+    text-transform: uppercase;
+    font-size: 6vw;
+    font-family: 'Inter UI';
+    font-style: italic;
+    font-weight: bold;
+    transform: scaleX(1.5);
+    transform-origin: top left;
+    -webkit-text-stroke: .8px #ffe700;
+    -webkit-text-fill-color: transparent;
+    padding: 0 2vh;
+  }
+}
+
+.rollingTextVert {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  .stripe {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .text {
+    text-transform: uppercase;
+    font-size: 10vh;
+    font-family: 'Inter UI';
+    font-style: italic;
+    font-weight: bold;
+    transform: scaleX(1.5);
+    transform-origin: top left;
+    -webkit-text-stroke: .8px #ffe700;
+    -webkit-text-fill-color: transparent;
+    padding: 0 2vh;
+  }
+}
+
+// .wardrobe {
+//   display: none;
+
+//   position: relative;
+//   text-transform: uppercase;
+//   font-size: 7vw;
+//   font-family: 'Inter UI';
+//   font-style: italic;
+//   font-weight: bold;
+//   transform: scaleX(1.5);
+//   transform-origin: top left;
+
+//   &:after {
+//     content: attr(data-hover);
+//     position: absolute;
+//     left: 0;
+//     top: 0;
+//     color: #000;
+//     max-width: 0;
+//     overflow: hidden;
+//     transition: max-width .25s linear;
+//     display: block;
+//     width: 100%;
+//   }
+
+//   i {
+//     -webkit-text-stroke: .8px #ffe700;
+//     -webkit-text-fill-color: transparent;
+//   }
+
+//   &:hover:after {
+//     max-width: 100%;
+//   } 
+// }
