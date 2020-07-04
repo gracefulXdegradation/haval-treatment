@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import times from 'lodash/times'
 import style from './style.module.scss'
 
 export const Slide4 = () => {
@@ -23,49 +24,19 @@ export const Slide4 = () => {
   return (
     <div className={style.slideRoot}>
       <div ref={refText} className={style.rollingText}>
-        <i className={style.stripe}>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-        </i>
-        <i className={style.stripe}>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-        </i>
+        {times(2, (i) => (
+          <i className={style.stripe} key={`marquee-1.${i}`}>
+            {times(5, (j) => <span className={style.text} key={`text-${j}`}>Wardrobe</span>)}
+          </i>
+        ))}
       </div>
 
       <div ref={refTextVert} className={style.rollingTextVert}>
-        <i className={style.stripe}>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-        </i>
-        <i className={style.stripe}>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-          <span className={style.text}>Wardrobe</span>
-        </i>
+        {times(2, (i) => (
+          <i className={style.stripe} key={`marquee-2.${i}`}>
+            {times(10, (j) => <span className={style.text} key={`text-${j}`}>Wardrobe</span>)}
+          </i>
+        ))}
       </div>
     </div>
   )
