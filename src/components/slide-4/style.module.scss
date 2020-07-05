@@ -13,20 +13,25 @@
   transform: rotateZ(15deg) translate(0px, 20vh);
 
   .stripe {
-    display: block;
+    display: flex;
   }
 
   .text {
-    text-transform: uppercase;
-    font-size: 6vw;
-    font-family: 'Inter UI';
-    font-style: italic;
-    font-weight: bold;
-    transform: scaleX(1.5);
-    transform-origin: top left;
-    -webkit-text-stroke: .8px #ffe700;
-    -webkit-text-fill-color: transparent;
     padding: 0 2vh;
+
+    i {
+      display: block;
+      transform: scaleX(1.5);
+      transform-origin: top left;
+      text-transform: uppercase;
+      font-size: 6vw;
+      font-family: 'Inter UI';
+      font-style: italic;
+      font-weight: bold;
+      -webkit-text-stroke: .8px #ffe700;
+      -webkit-text-fill-color: transparent;
+      padding-right: 20vw;
+    }
   }
 }
 

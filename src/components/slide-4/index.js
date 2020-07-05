@@ -7,7 +7,7 @@ export const Slide4 = () => {
   const refTextVert = useRef(null)
 
   useEffect(() => {
-    window.gsap.to(refText.current.querySelectorAll('i'), 10, {
+    window.gsap.to(refText.current.querySelectorAll('i'), 20, {
       xPercent: '-=100',
       ease: 'none',
       repeat: -1
@@ -26,7 +26,7 @@ export const Slide4 = () => {
       <div ref={refText} className={style.rollingText}>
         {times(2, (i) => (
           <i className={style.stripe} key={`marquee-1.${i}`}>
-            {times(5, (j) => <span className={style.text} key={`text-${j}`}>Wardrobe</span>)}
+            {times(5, (j) => <span className={style.text} key={`text-${j}`}><i>Wardrobe</i></span>)}
           </i>
         ))}
       </div>
