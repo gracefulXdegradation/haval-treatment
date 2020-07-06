@@ -8,13 +8,11 @@
   position: relative;
 }
 
-$imgCount: 8;
+$imgCount: 10;
 $imgW: 32vw;
 $imgH: 18vw;
-$horMargin: 8vw;
-$totalWidth: calc(#{$imgW * $imgCount - $horMargin * ($imgCount - 1)});
 
-@for $i from 1 through 8 {
+@for $i from 1 through $imgCount {
   .image-#{$i} {
     display: block;
     background-image: url(./img/photo#{$i}.jpg);

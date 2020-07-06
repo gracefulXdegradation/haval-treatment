@@ -29,7 +29,7 @@ export const Slide5 = () => {
 
   return (
     <div ref={refRoot} className={style.slideRoot}>
-      {times(8, (i) => (
+      {times(10, (i) => (
         <span className={style[`image-${i + 1}`]} key={`image.${i}`} />
       ))}
     </div>
