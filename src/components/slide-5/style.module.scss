@@ -5,4 +5,24 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  position: relative;
+}
+
+$imgCount: 8;
+$imgW: 32vw;
+$imgH: 18vw;
+$horMargin: 8vw;
+$totalWidth: calc(#{$imgW * $imgCount - $horMargin * ($imgCount - 1)});
+
+@for $i from 1 through 8 {
+  .image-#{$i} {
+    display: block;
+    background-image: url(./img/photo#{$i}.jpg);
+    width: $imgW;
+    height: $imgH;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: calc(#{($i - 1) % 2 + 1} * 33.3vh - #{$imgH} / 2 );
+  }
 }
