@@ -24,5 +24,6 @@ $totalWidth: calc(#{$imgW * $imgCount - $horMargin * ($imgCount - 1)});
     background-position: center;
     position: absolute;
     top: calc(#{($i - 1) % 2 + 1} * 33.3vh - #{$imgH} / 2 );
+    mix-blend-mode: screen;
   }
 }

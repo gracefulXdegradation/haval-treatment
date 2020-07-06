@@ -11,9 +11,13 @@ export const Slide5 = () => {
       const { width: imageWidth } = el.getBoundingClientRect()
       const margin = imageWidth / 6
       const totalWidth = images.length * imageWidth - images.length * margin
+      const scaleDelta = 0.05
 
       return window.gsap.fromTo(el, {
-        x: totalWidth - imageWidth
+        x: totalWidth - imageWidth,
+        yPercent: window.gsap.utils.random(-25, 25),
+        xPercent: window.gsap.utils.random(-5, 5),
+        scale: window.gsap.utils.random(1 - scaleDelta, 1 + scaleDelta)
       }, {
         x: -imageWidth,
         ease: 'none',
